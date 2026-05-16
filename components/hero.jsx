@@ -538,13 +538,16 @@ import Link from "next/link";
 import { 
   TrendingUp, 
   TrendingDown, 
-  DollarSign, 
+  IndianRupee, 
   PieChart, 
   LineChart, 
   Shield,
   ArrowUpRight,
   ArrowDownRight,
-  Sparkles
+  Sparkles,
+  Wallet,
+  CreditCard,
+  Building2
 } from "lucide-react";
 
 const HeroSection = () => {
@@ -552,69 +555,72 @@ const HeroSection = () => {
   const [activeCard, setActiveCard] = useState(0);
 
   const metrics = [
-    { label: "Total Balance", value: "$12,845", change: "+8.2%", positive: true, icon: DollarSign },
-    { label: "Monthly Spend", value: "$3,241", change: "-12%", positive: true, icon: TrendingDown },
+    { label: "Total Balance", value: "₹12,84,500", change: "+8.2%", positive: true, icon: Wallet },
+    { label: "Monthly Spend", value: "₹32,410", change: "-12%", positive: true, icon: TrendingDown },
     { label: "Savings Rate", value: "24%", change: "+5%", positive: true, icon: TrendingUp },
-    { label: "Investments", value: "$8,432", change: "+15.3%", positive: true, icon: LineChart },
+    { label: "Investments", value: "₹8,43,200", change: "+15.3%", positive: true, icon: LineChart },
   ];
 
   const transactions = [
-    { name: "Spotify", amount: "$12.99", date: "Today", category: "Entertainment", icon: "🎵" },
-    { name: "Whole Foods", amount: "$84.32", date: "Yesterday", category: "Groceries", icon: "🛒" },
-    { name: "Uber", amount: "$24.50", date: "Dec 12", category: "Transport", icon: "🚗" },
+    { name: "Spotify", amount: "₹129", date: "Today", category: "Entertainment", icon: "🎵" },
+    { name: "Big Basket", amount: "₹843", date: "Yesterday", category: "Groceries", icon: "🛒" },
+    { name: "Uber", amount: "₹245", date: "Dec 12", category: "Transport", icon: "🚗" },
+    { name: "Swiggy", amount: "₹456", date: "Dec 11", category: "Food", icon: "🍔" },
   ];
 
   const aiInsights = [
-    "AI predicts you'll save $450 this month",
+    "AI predicts you'll save ₹4,500 this month",
     "Your dining budget is 20% below target",
-    "Consider moving $500 to high-yield savings",
+    "Consider moving ₹5,000 to high-yield savings",
+    "You spent 15% less on entertainment this week",
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveCard((prev) => (prev + 1) % 3);
+      setActiveCard((prev) => (prev + 1) % 4);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="pt-40 pb-20 px-4 overflow-hidden">
+    <section className="pt-40 pb-20 px-4 overflow-hidden bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <div className="container mx-auto text-center">
-        <h1 className="text-5xl md:text-8xl lg:text-[105px] pb-6 gradient-title">
+        <h1 className="text-5xl md:text-8xl lg:text-[85px] pb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 dark:from-white dark:via-blue-400 dark:to-white bg-clip-text text-transparent font-bold">
           Manage Your Finances <br /> with Intelligence
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
           An AI-powered financial management platform that helps you track,
           analyze, and optimize your spending with real-time insights.
         </p>
         <div className="flex justify-center space-x-4">
           <Link href="/dashboard">
-            <Button size="lg" className="px-8">
-              Get Started
+            <Button size="lg" className="px-8 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+              Get Started Free
             </Button>
           </Link>
+          
         </div>
 
         {/* Animated Dashboard Preview */}
         <div ref={animatedRef} className="mt-16 relative">
           {/* Background glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl rounded-full" />
           
           <div className="relative max-w-6xl mx-auto">
             {/* Main Dashboard Card */}
-            <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl p-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl p-6 transform transition-all duration-500 hover:shadow-3xl">
               
               {/* Header with AI Badge */}
-              <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-200 dark:border-slate-700">
                 <div className="flex items-center gap-2">
-                  <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-md">
                     <Sparkles className="h-4 w-4 text-white" />
                   </div>
-                  <span className="font-semibold text-white">FinAI Dashboard</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">Dashboard</span>
                 </div>
-                <div className="flex items-center gap-2 bg-purple-500/20 px-3 py-1 rounded-full">
-                  <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-xs text-purple-300">AI Active</span>
+                <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 px-3 py-1 rounded-full border border-purple-500/20">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-lg shadow-emerald-500/50" />
+                  <span className="text-xs font-medium text-purple-700 dark:text-purple-300">AI Active</span>
                 </div>
               </div>
 
@@ -625,19 +631,23 @@ const HeroSection = () => {
                   return (
                     <div
                       key={idx}
-                      className="bg-white/10 rounded-xl p-4 hover:bg-white/15 transition-all duration-300 hover:scale-105 cursor-pointer group"
+                      className="bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-xl p-4 hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer group border border-slate-200 dark:border-slate-700"
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <Icon className="h-5 w-5 text-blue-400 group-hover:scale-110 transition-transform" />
-                        <span className={`text-sm font-medium flex items-center gap-1 ${
-                          metric.positive ? "text-green-400" : "text-red-400"
+                        <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
+                          <Icon className="h-5 w-5 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+                        </div>
+                        <span className={`text-sm font-semibold flex items-center gap-1 px-2 py-0.5 rounded-full ${
+                          metric.positive 
+                            ? "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30" 
+                            : "text-rose-700 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30"
                         }`}>
                           {metric.change}
                           {metric.positive ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
                         </span>
                       </div>
-                      <p className="text-2xl font-bold text-white">{metric.value}</p>
-                      <p className="text-xs text-gray-400 mt-1">{metric.label}</p>
+                      <p className="text-2xl font-bold text-slate-900 dark:text-white">{metric.value}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">{metric.label}</p>
                     </div>
                   );
                 })}
@@ -646,44 +656,52 @@ const HeroSection = () => {
               {/* Two Column Layout */}
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Recent Transactions */}
-                <div className="bg-white/10 rounded-xl p-4">
-                  <h3 className="text-white font-semibold mb-3 flex items-center gap-2">
-                    <PieChart className="h-4 w-4 text-blue-400" />
+                <div className="bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                  <h3 className="text-slate-900 dark:text-white font-semibold mb-3 flex items-center gap-2">
+                    <div className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-900/30">
+                      <PieChart className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                    </div>
                     Recent Transactions
                   </h3>
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {transactions.map((transaction, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 transition-all animate-in fade-in slide-in-from-left duration-500"
+                        className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all animate-in fade-in slide-in-from-left duration-500 cursor-pointer"
                         style={{ animationDelay: `${idx * 100}ms` }}
                       >
                         <div className="flex items-center gap-3">
                           <div className="text-2xl">{transaction.icon}</div>
                           <div className="text-left">
-                            <p className="text-white text-sm font-medium">{transaction.name}</p>
-                            <p className="text-gray-400 text-xs">{transaction.category}</p>
+                            <p className="text-slate-900 dark:text-white text-sm font-medium">{transaction.name}</p>
+                            <p className="text-slate-500 dark:text-slate-400 text-xs">{transaction.category}</p>
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-white text-sm font-medium">{transaction.amount}</p>
-                          <p className="text-gray-400 text-xs">{transaction.date}</p>
+                          <p className="text-slate-900 dark:text-white text-sm font-semibold">{transaction.amount}</p>
+                          <p className="text-slate-500 dark:text-slate-400 text-xs">{transaction.date}</p>
                         </div>
                       </div>
                     ))}
                   </div>
+                  <button className="mt-3 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1 mx-auto">
+                    View all transactions
+                    <ArrowUpRight className="h-3 w-3" />
+                  </button>
                 </div>
 
                 {/* AI Insights Carousel */}
-                <div className="bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl p-4 relative overflow-hidden">
-                  <div className="absolute top-0 right-0">
-                    <Sparkles className="h-8 w-8 text-yellow-400/30 animate-pulse" />
+                <div className="bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 dark:from-purple-950/30 dark:via-blue-950/30 dark:to-indigo-950/30 rounded-xl p-4 relative overflow-hidden border border-purple-200 dark:border-purple-800">
+                  <div className="absolute top-0 right-0 opacity-20">
+                    <Sparkles className="h-16 w-16 text-purple-600 dark:text-purple-400 animate-pulse" />
                   </div>
-                  <h3 className="text-white font-semibold mb-3 flex items-center gap-2">
-                    <Shield className="h-4 w-4 text-purple-400" />
-                    AI Insights
+                  <h3 className="text-slate-900 dark:text-white font-semibold mb-3 flex items-center gap-2">
+                    <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/30">
+                      <Shield className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    AI Powered Insights
                   </h3>
-                  <div className="relative h-24 overflow-hidden">
+                  <div className="relative h-28 overflow-hidden">
                     {aiInsights.map((insight, idx) => (
                       <div
                         key={idx}
@@ -693,13 +711,18 @@ const HeroSection = () => {
                             : "opacity-0 translate-y-8"
                         }`}
                       >
-                        <div className="flex items-center gap-3 h-full">
-                          <div className="h-10 w-10 rounded-full bg-purple-500/30 flex items-center justify-center flex-shrink-0">
-                            <Sparkles className="h-5 w-5 text-purple-400" />
+                        <div className="flex items-start gap-3 h-full">
+                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                            <Sparkles className="h-5 w-5 text-white" />
                           </div>
-                          <p className="text-white text-sm leading-relaxed text-left">
-                            {insight}
-                          </p>
+                          <div className="flex-1 text-left">
+                            <p className="text-slate-800 dark:text-slate-200 text-sm leading-relaxed font-medium">
+                              {insight}
+                            </p>
+                            <p className="text-xs text-purple-600 dark:text-purple-400 mt-2">
+                              AI Recommendation
+                            </p>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -710,10 +733,10 @@ const HeroSection = () => {
                       <button
                         key={idx}
                         onClick={() => setActiveCard(idx)}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                        className={`h-2 rounded-full transition-all duration-300 ${
                           activeCard === idx 
-                            ? "w-8 bg-purple-400" 
-                            : "w-1.5 bg-purple-400/30"
+                            ? "w-8 bg-gradient-to-r from-purple-600 to-blue-600" 
+                            : "w-2 bg-purple-300 dark:bg-purple-700"
                         }`}
                       />
                     ))}
@@ -722,17 +745,25 @@ const HeroSection = () => {
               </div>
 
               {/* Bottom CTA Bar */}
-              <div className="mt-6 pt-4 border-t border-white/10">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="animate-pulse">
-                      <div className="h-2 w-2 rounded-full bg-green-400" />
+              <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                      
+                      
                     </div>
-                    <span className="text-xs text-gray-400">Live synced with 15+ banks</span>
+                    
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="text-xs text-gray-400">🔒 Bank-level security</span>
-                    <span className="text-xs text-gray-400">⚡ Real-time updates</span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400 font-medium flex items-center gap-1">
+                      🔒 secure
+                    </span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400 font-medium flex items-center gap-1">
+                      ⚡ Real-time updates
+                    </span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400 font-medium flex items-center gap-1">
+                      📊 Smart analytics
+                    </span>
                   </div>
                 </div>
               </div>
@@ -740,14 +771,17 @@ const HeroSection = () => {
 
             {/* Floating Animation Elements */}
             <div className="absolute -top-4 -right-4 animate-bounce-slow">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center shadow-xl">
                 <TrendingUp className="h-6 w-6 text-white" />
               </div>
             </div>
             <div className="absolute -bottom-4 -left-4 animate-bounce-slow animation-delay-300">
-              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
-                <DollarSign className="h-5 w-5 text-white" />
+              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 flex items-center justify-center shadow-xl">
+                <IndianRupee className="h-5 w-5 text-white" />
               </div>
+            </div>
+            <div className="absolute top-1/2 -left-6 animate-ping-slow opacity-30">
+              <div className="h-8 w-8 rounded-full bg-blue-400" />
             </div>
           </div>
         </div>
@@ -758,11 +792,19 @@ const HeroSection = () => {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
         }
+        @keyframes ping-slow {
+          0% { transform: scale(0.95); opacity: 0.3; }
+          50% { transform: scale(1.05); opacity: 0.1; }
+          100% { transform: scale(0.95); opacity: 0.3; }
+        }
         .animate-bounce-slow {
           animation: bounce-slow 3s ease-in-out infinite;
         }
         .animation-delay-300 {
           animation-delay: 1.5s;
+        }
+        .animate-ping-slow {
+          animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
       `}</style>
     </section>
