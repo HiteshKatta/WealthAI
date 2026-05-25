@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "",
     "dev": "next dev --turbopack",
-    "build": "prisma generate && next build",
+    "email": "email dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email": "email dev"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@arcjet/next": "^1.4.0",
     "@clerk/nextjs": "^6.39.3",
     "@google/generative-ai": "^0.21.0",
     "@hookform/resolvers": "^3.9.1",
-    "@prisma/client": "^6.0.1",
+    "@prisma/client": "5.22.0",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
@@ -52,7 +52,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
-    "prisma": "^6.19.3",
+    "prisma": "5.22.0",
     "react-email": "3.0.3",
     "tailwindcss": "^3.4.1"
   }

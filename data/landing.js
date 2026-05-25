@@ -3,7 +3,7 @@ import {
   Receipt,
   PieChart,
   CreditCard,
-  Globe,
+  Repeat,
   Zap,
 } from "lucide-react";
 
@@ -52,9 +52,9 @@ export const featuresData = [
     description: "Manage multiple accounts and credit cards in one place",
   },
   {
-    icon: <Globe className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Currency",
-    description: "Support for multiple currencies with real-time conversion",
+    icon: <Repeat className="h-8 w-8 text-blue-600" />,
+    title: "Recurring Payments",
+    description: "Automatically adds recurring payments.",
   },
   {
     icon: <Zap className="h-8 w-8 text-blue-600" />,
